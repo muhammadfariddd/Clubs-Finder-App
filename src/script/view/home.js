@@ -2,7 +2,7 @@ import Utils from "../utils.js";
 import Clubs from "../data/local/clubs.js";
 
 const home = () => {
-  const searchFormElement = document.querySelector("#searchForm");
+  const searchFormElement = document.querySelector("search-bar");
 
   const clubListContainerElement = document.querySelector("#clubListContainer");
   const clubQueryWaitingElement =
@@ -25,7 +25,7 @@ const home = () => {
   const onSearchHandler = (event) => {
     event.preventDefault();
 
-    const query = event.target.elements.name.value;
+    const { query } = event.detail;
     showSportClub(query);
   };
 
@@ -55,7 +55,7 @@ const home = () => {
     Utils.showElement(clubQueryWaitingElement);
   };
 
-  searchFormElement.addEventListener("submit", onSearchHandler);
+  searchFormElement.addEventListener("search", onSearchHandler);
   showQueryWaiting();
 };
 

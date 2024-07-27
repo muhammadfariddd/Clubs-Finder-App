@@ -32,7 +32,7 @@ class ClubList extends HTMLElement {
       
         gap: ${this.gutter}px;
       }
-        `;
+    `;
   }
 
   set column(value) {
@@ -58,19 +58,19 @@ class ClubList extends HTMLElement {
   }
 
   _emptyContent() {
-    this.shadowRoot.innerHTML = "";
+    this._shadowRoot.innerHTML = "";
   }
 
   render() {
     this._emptyContent();
     this._updateStyle();
 
-    this.shadowRoot.appendChild(this._style);
-    this.shadowRoot.innerHTML += `
+    this._shadowRoot.appendChild(this._style);
+    this._shadowRoot.innerHTML += `
       <div class="list">
         <slot></slot>
       </div>
-      `;
+    `;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
